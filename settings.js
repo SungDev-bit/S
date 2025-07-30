@@ -1,79 +1,133 @@
 const fs = require('fs');
-const path = require('path');
-const { getConfig } = require('./lib/configdb');
+if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
 
-if (fs.existsSync(path.resolve('config.env'))) {
-  require('dotenv').config({ path: path.resolve('config.env') });
-}
-
-// Helper to convert "true"/"false" strings to actual boolean
-function convertToBool(text, trueValue = 'true') {
-  return text === trueValue;
+function convertToBool(text, fault = 'true') {
+    return text === fault ? true : false;
 }
 
 module.exports = {
-  // ===== BOT CORE SETTINGS =====
-  SESSION_ID: process.env.SESSION_ID || "", // Your bot's session ID make sure it starts with suho~(keep secure)
-  PREFIX: getConfig("PREFIX") || ",", // Command prefix (e.g., ., /, !, *)
-  CHATBOT: getConfig("CHATBOT") || "on", // Chatbot mode: on/off
-  BOT_NAME: process.env.BOT_NAME || getConfig("BOT_NAME") || "sᴜɴɢ-sᴜʜᴏ-ᴍᴅ", // Bot display name
-  MODE: getConfig("MODE") || process.env.MODE || "private", // Bot mode: public/private/group/inbox
-  REPO: process.env.REPO || "https://github.com/NaCkS-ai/Sung-Suho-MD", // Bot GitHub repo dont change this❗️
-  BAILEYS: process.env.BAILEYS || "@whiskeysockets/baileys", // Baileys version
+    SESSION_ID: process.env.SESSION_ID || "",
+    // add your Session Id make sure it starts with suho~
 
-  // ===== OWNER & DEVELOPER SETTINGS =====
-  OWNER_NUMBER: process.env.OWNER_NUMBER || "12363621958", // Owner WhatsApp number
-  OWNER_NAME: process.env.OWNER_NAME || getConfig("OWNER_NAME") || "ᴍʀ sᴜɴɢ", // Owner name
-  DEV: process.env.DEV || "12363621958", // Developer contact number
-  DEVELOPER_NUMBER: '12363621958@s.whatsapp.net', // Developer WhatsApp ID
+    PREFIX: process.env.PREFIX || ".",
+    // add your prefix for bot
 
-  // ===== AUTO-RESPONSE SETTINGS =====
-  AUTO_REPLY: process.env.AUTO_REPLY || "false", // Enable auto-reply
-  AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY || "false", // Reply to status updates?
-  AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*Just seen ur status 😆 🤖*", // Status reply message
-  READ_MESSAGE: process.env.READ_MESSAGE || "false", // Mark messages as read automatically?
-  REJECT_MSG: process.env.REJECT_MSG || "*📵 Calls are not allowed on this number unless you have permission. 🚫*", // Message on rejected call
-  ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/vcofni.jpg",
-// add img for alive msg
+    BOT_NAME: process.env.BOT_NAME || "sᴜɴɢ-sᴜʜᴏ-ᴍᴅ",
+    // add bot name here for menu
 
-  LIVE_MSG: process.env.LIVE_MSG || "> ʙᴏᴛ ɪs sᴘᴀʀᴋɪɴɢ ᴀᴄᴛɪᴠᴇ ᴀɴᴅ ᴀʟɪᴠᴇ\n\n\nᴋᴇᴇᴘ ᴜsɪɴɢ ✦SungSu-ho-MD✦ ғʀᴏᴍ sungsu ᴛᴇᴄʜ ɪɴᴄ⚡\n\n\n*© ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ - ᴍᴅ\n\n> ɢɪᴛʜᴜʙ :* https://github.com/NaCkS-ai/Sung-Suho-MD",
-// add alive msg here 
+    MODE: process.env.MODE || "public",
+    // make bot public-private-inbox-group 
 
-  // ===== REACTION & STICKER SETTINGS =====
-  AUTO_REACT: process.env.AUTO_REACT || "false", // Auto-react to messages
-  OWNER_REACT: process.env.OWNER_REACT || "false", // Owner-specific reacts
-  CUSTOM_REACT: process.env.CUSTOM_REACT || "false", // Use custom emoji reactions
-  CUSTOM_REACT_EMOJIS: getConfig("CUSTOM_REACT_EMOJIS") || process.env.CUSTOM_REACT_EMOJIS || "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍", // Custom react emojis
-  STICKER_NAME: process.env.STICKER_NAME || "ᴋʜᴀɴ-ᴍᴅ", // Sticker pack name
-  AUTO_STICKER: process.env.AUTO_STICKER || "false", // Auto-send stickers
+    LINK_WHITELIST: "youtube.com,github.com",
 
-  // ===== MEDIA & AUTOMATION =====
-  AUTO_RECORDING: process.env.AUTO_RECORDING || "false", // Auto-record voice notes
-  AUTO_TYPING: process.env.AUTO_TYPING || "false", // Show typing indicator
-  MENTION_REPLY: process.env.MENTION_REPLY || "false", // Reply when mentioned
-  MENU_IMAGE_URL: getConfig("MENU_IMAGE_URL") || "https://files.catbox.moe/eeeypw.jpg", // Menu image URL
+    LINK_WARN_LIMIT: 3, // Number of warnings before action
 
-  // ===== SECURITY & ANTI-FEATURES =====
-  ANTI_DELETE: process.env.ANTI_DELETE || "true", // Recover deleted messages
-  ANTI_CALL: process.env.ANTI_CALL || "false", // Automatically reject calls
-  ANTI_BAD_WORD: process.env.ANTI_BAD_WORD || "false", // Block bad words
-  ANTI_LINK: process.env.ANTI_LINK || "true", // Block links in groups
-  ANTI_VV: process.env.ANTI_VV || "true", // Block view-once messages
-  DELETE_LINKS: process.env.DELETE_LINKS || "false", // Auto-delete links
-  ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "same", // Where to log deleted messages ('inbox' or 'same')
-  ANTI_BOT: process.env.ANTI_BOT || "true", // Block other bots?
-  PM_BLOCKER: process.env.PM_BLOCKER || "true", // Block private messages?
+    LINK_ACTION: "kick", // "kick", "mute", or "none"
 
-  // ===== BOT BEHAVIOR & APPEARANCE =====
-  DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ dev sung*", // Bot description/footer
-  PUBLIC_MODE: process.env.PUBLIC_MODE || "true", // Allow public commands?
-  ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false", // Show bot always online
-  AUTO_STATUS_REACT: process.env.AUTO_STATUS_REACT || "true", // React to status updates
-  AUTO_STATUS_SEEN: process.env.AUTO_STATUS_SEEN || "true", // Mark status as seen
-  AUTO_BIO: process.env.AUTO_BIO || "false", // Automatically update bio
-  WELCOME: process.env.WELCOME || "false", // Enable welcome messages
-  GOODBYE: process.env.GOODBYE || "false", // Enable goodbye messages
-  ADMIN_ACTION: process.env.ADMIN_ACTION || "false", // Show admin activity notifications
-  
-version: process.env.version || "1.0.0-alpha",
+    AUTO_STATUS_SEEN: process.env.AUTO_STATUS_SEEN || "true",
+    // make true or false status auto seen
+
+    AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY || "false",
+    // make true if you want auto reply on status 
+
+    AUTO_STATUS_REACT: process.env.AUTO_STATUS_REACT || "true",
+    // make true if you want auto reply on status 
+
+    AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*sᴛᴀᴛᴜs sᴇᴇɴ ʙʏ ᴍᴇ 😆*",
+    // set the auto reply message on status reply  
+
+    WELCOME: process.env.WELCOME || "true",
+    // true if want welcome and goodbye msg in groups 
+
+    ADMIN_EVENTS: process.env.ADMIN_EVENTS || "false",
+    // make true to know who dismiss or promoted a member in group
+
+    ANTI_LINK: process.env.ANTI_LINK || "true",
+    // make anti link true,false for groups 
+
+    MENTION_REPLY: process.env.MENTION_REPLY || "false",
+    // make true if want auto voice reply if someone mention you 
+
+    MENU_IMAGE_URL: process.env.MENU_IMAGE_URL || "https://files.catbox.moe/eeeypw.jpg",
+    // add custom menu and mention reply image url
+
+    ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/vcofni.jpg",
+    // add img for alive msg
+
+    LIVE_MSG: process.env.LIVE_MSG || 
+`> ʙᴏᴛ ɪs sᴘᴀʀᴋɪɴɢ ᴀᴄᴛɪᴠᴇ ᴀɴᴅ ᴀʟɪᴠᴇ
+
+ᴋᴇᴇᴘ ᴜsɪɴɢ ✦sᴜɴɢ sᴜʜᴏ✦ ғʀᴏᴍ ᴍᴀʟᴠɪɴ ᴛᴇᴄʜ ɪɴᴄ⚡
+
+*© ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ - ᴍᴅ*
+
+> ɢɪᴛʜᴜʙ : github.com/NaCkS-ai/SungSu-ho-MD`,
+    // add alive msg here 
+
+    STICKER_NAME: process.env.STICKER_NAME || "ᴍᴀʟᴠɪɴ-xᴅ",
+    // type sticker pack name 
+
+    CUSTOM_REACT: process.env.CUSTOM_REACT || "false",
+    // make this true for custom emoji react  
+
+    CUSTOM_REACT_EMOJIS: process.env.CUSTOM_REACT_EMOJIS || "💝,💖,💗,❤️‍🩹,❤️,💛,💚,💙,💜,🤎,🖤,🤍",
+    // choose custom react emojis by yourself 
+
+    DELETE_LINKS: process.env.DELETE_LINKS || "false",
+    // automatic delete links without removing member 
+
+    OWNER_NUMBER: process.env.OWNER_NUMBER || "27813374457",
+    // add your bot owner number
+
+    OWNER_NAME: process.env.OWNER_NAME || "ᴍʀ sᴜɴɢ",
+    // add bot owner name
+
+    DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍʀ sᴜɴɢ sᴜʜᴏ*",
+    // add bot owner description  
+
+    READ_MESSAGE: process.env.READ_MESSAGE || "false",
+    // Turn true or false for automatic read msgs
+
+    AUTO_REACT: process.env.AUTO_REACT || "false",
+    // make this true or false for auto react on all msgs
+
+    ANTI_BAD: process.env.ANTI_BAD || "false",
+    // false or true for anti bad words  
+
+    ANTI_LINK_KICK: process.env.ANTI_LINK_KICK || "false",
+    // make anti link true,false for groups 
+
+    AUTO_STICKER: process.env.AUTO_STICKER || "false",
+    // make true for automatic stickers 
+
+    AUTO_REPLY: process.env.AUTO_REPLY || "false",
+    // make true or false automatic text reply 
+
+    ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
+    // make true for always online 
+
+    PUBLIC_MODE: process.env.PUBLIC_MODE || "false",
+    // make false if want private mode
+
+    AUTO_TYPING: process.env.AUTO_TYPING || "false",
+    // true for automatic show typing  
+
+    READ_CMD: process.env.READ_CMD || "false",
+    // true if want mark commands as read  
+
+    DEV: process.env.DEV || "27813374457",
+    // replace with your whatsapp number  
+
+    ANTI_VV: process.env.ANTI_VV || "true",
+    // true for anti once view 
+
+    ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "inbox",
+    // change it to 'inbox' or 'same' if you want to resend deleted message in same chat 
+
+    AUTO_RECORDING: process.env.AUTO_RECORDING || "false",
+    // make it true for auto recording 
+
+    version: process.env.version || "1.0.0-alpha"
+
+    
 };
