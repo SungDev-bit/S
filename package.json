@@ -10,7 +10,7 @@
     "restart": "pm2 restart lite"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "npm:asitha-new-v99",
+    "@whiskeysockets/baileys": "github:EdderBot02/bail",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@dark-yasiya/yt-dl.js": "1.0.5",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
@@ -36,6 +36,7 @@
     "path": "^0.12.7",
     "node-fetch": "^2.6.1",
     "btch-downloader": "^2.2.9",
+    "better-sqlite3": "*",
     "megajs": "^1.1.0",
     "pdfkit": "^0.14.0",
     "wa_set_pkg": "1.0.5",
