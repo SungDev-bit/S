@@ -8,7 +8,7 @@ lite({
     alias: ["status", "online", "a"],
     desc: "Check if bot is alive and running",
     category: "main",
-    react: "⚡",
+    react: "👁️",
     filename: __filename
 }, async (conn, mek, m, { from, sender, reply }) => {
     try {
@@ -17,16 +17,16 @@ lite({
         const uptime = runtime(process.uptime());
 
         const caption = `
-╭━━〔 🤖 *${config.BOT_NAME} STATUS* 〕━━⬣
-┃ 🟢 *Bot is Active & Online!*
+╭━━〔 ⚔️ *${config.BOT_NAME} SYSTEM STATUS* ⚔️ 〕━━⬣
+┃ ✅ *The Shadow System is Online...*
 ┃
-┃ 👑 *ᴏᴡɴᴇʀ:* ${config.OWNER_NAME}
-┃ 🔖 *ᴠᴇʀsɪᴏɴ:* ${config.version}
-┃ 🛠️ *ᴘʀᴇғɪx:* [ ${config.PREFIX} ]
-┃ ⚙️ *ᴍᴏᴅᴇ:* [ ${config.MODE} ]
-┃ 💾 *ʀᴀᴍ:* ${heapUsed}MB / ${totalMem}MB
-┃ 🖥️ *ʜᴏsᴛ:* ${os.hostname()}
-┃ ⏱️ *ᴜᴘᴛɪᴍᴇ:* ${uptime}
+┃ 🩸 *Sovereign:* ${config.OWNER_NAME}
+┃ ⚡ *Version:* ${config.version}
+┃ 📖 *Prefix:* [ ${config.PREFIX} ]
+┃ 🌑 *Mode:* [ ${config.MODE} ]
+┃ 💾 *Mana (RAM):* ${heapUsed}MB / ${totalMem}MB
+┃ 🏰 *Host Core:* ${os.hostname()}
+┃ ⏳ *System Uptime:* ${uptime}
 ╰━━━━━━━━━━━━━━⬣
 > ${config.DESCRIPTION}
         `.trim();
@@ -35,6 +35,22 @@ lite({
             image: { url: config.MENU_IMAGE_URL },
             caption,
             contextInfo: {
+                mentionedJid: [sender],
+                forwardingScore: 1000,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363398430045533@newsletter',
+                    newsletterName: 'sᴜɴɢ sᴜʜᴏ ᴍᴅ',
+                    serverMessageId: 143
+                }
+            }
+        }, { quoted: mek });
+
+    } catch (e) {
+        console.error("Alive Error:", e);
+        reply(`❌ *Error:* ${e.message}`);
+    }
+});            contextInfo: {
                 mentionedJid: [sender],
                 forwardingScore: 1000,
                 isForwarded: true,
