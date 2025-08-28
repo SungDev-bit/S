@@ -50,7 +50,7 @@ const Crypto = require('crypto')
 const path = require('path')
 const { getPrefix } = require('./lib/prefix');
 
-const ownerNumber = [12363621958] 
+const ownerNumber = [27649342626] 
 
 //=============================================
 const tempDir = path.join(os.tmpdir(), 'cache-temp')
@@ -101,8 +101,8 @@ async function loadSession() {
         console.log('[ 🆔️ ] Downloading MEGA.nz session...');
         
         // Remove "malvin~" prefix if present, otherwise use full SESSION_ID
-        const megaFileId = config.SESSION_ID.startsWith('suho~') 
-            ? config.SESSION_ID.replace("suho~", "") 
+        const megaFileId = config.SESSION_ID.startsWith('drakonis~') 
+            ? config.SESSION_ID.replace("drakonis~", "") 
             : config.SESSION_ID;
 
         const filer = File.fromURL(`https://mega.nz/file/${megaFileId}`);
@@ -203,17 +203,17 @@ async function connectToWA() {
                 const username = `NaCkS-ai`;
                 const mrmalvin = `https://github.com/${username}`;
 
-                const upMessage = `\`Suho md Bot Connected!\` ✅
-\n\n> _One of the Best W.A Bot._\n\n────────────────
-> 🌟 \`Star Repo\` : 
+                const upMessage = `\`Suho-MD Bot Synced to the Shadows!\` ⚔️👁️
+\n\n> _Forged in darkness, one of the Strongest W.A Hunters._\n\n────────────────
+> 🔮 \`Star the Arsenal\` : 
 ${config.REPO}\n
-> 🪄 \`Follow Us\` :
+> ⚔️ \`Join the Guild\` :
 ${mrmalvin}\n
-> ⛔  \`Bot Prefix\` ${prefix}\n
-> 📺 \`ʏᴏᴜᴛᴜʙᴇ ᴛᴜᴛᴏʀɪᴀʟꜱ\`:
+> 🩸 \`Command Prefix\` ${prefix}\n
+> 📜 \`ᴛʜᴇ ᴘᴀᴛʜ ᴏꜰ ᴘᴏᴡᴇʀ (YouTube)\`:
 https://youtube.com/@malvintech2
 ────────────────
-\n> © Dev Sung`;
+\n> © Dev Sung — *Awaken Your Strength*`;
 
                await conn.sendMessage(conn.user.id, { 
                         image: { url: `https://files.catbox.moe/eeeypw.jpg` },
@@ -1026,12 +1026,17 @@ app.get('/', (req, res) => {
     res.redirect('/malvin.html');
 });
 app.listen(port, () => console.log(`
-╭──[ 🤖 WELCOME DEAR USER! ]─
-│      ♥️from dev sung
-│ If you enjoy using this bot,
-│ please ⭐  Star it & 🍴  Fork it on GitHub!
-│ your support keeps it growing! 💙 
-╰─────────`));
+╭───────〔 ⚔️👁️ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄, 𝐇𝐔𝐍𝐓𝐄𝐑! 👁️⚔️ 〕───────╮
+│
+│ 🩸 Step into the shadows of power...  
+│ Do you have what it takes to rise?  
+│ 
+│ 🔥 If this bot strengthens your journey,  
+│ ⭐ Forge it with a Star & 🍴 Wield it with a Fork!  
+│ Every mark fuels its evolution! ⚡  
+│
+│ 🌑 Embrace the darkness. Awaken your strength.  
+╰───────────────────────────────────────╯`));
 setTimeout(() => {
     connectToWA()
 }, 4000);
