@@ -57,25 +57,4 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
     }
 });
 
-// created by malvin king        await conn.sendMessage(from, {
-            text,
-            contextInfo: {
-                mentionedJid: [sender],
-                forwardingScore: 999,
-                isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363402507750390@newsletter',
-                    newsletterName: "ᴍʀ sᴜɴɢ",
-                    serverMessageId: 143
-                }
-            }
-        }, { quoted: mek });
-
-    } catch (e) {
-        console.error("Error in ping command:", e);
-        reply(`An error occurred: ${e.message}`);
-    }
-});
-
 // created by malvin king
-
