@@ -50,20 +50,4 @@ lite({
         console.error("Alive Error:", e);
         reply(`❌ *Error:* ${e.message}`);
     }
-});            contextInfo: {
-                mentionedJid: [sender],
-                forwardingScore: 1000,
-                isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363398430045533@newsletter',
-                    newsletterName: 'sᴜɴɢ sᴜʜᴏ ᴍᴅ',
-                    serverMessageId: 143
-                }
-            }
-        }, { quoted: mek });
-
-    } catch (e) {
-        console.error("Alive Error:", e);
-        reply(`❌ *Error:* ${e.message}`);
-    }
 });
