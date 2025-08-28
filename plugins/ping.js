@@ -6,15 +6,15 @@ lite({
     alias: ["speed","pong"],use: '.ping',
     desc: "Check bot's response time.",
     category: "main",
-    react: "⚡",
+    react: "👁️",
     filename: __filename
 },
 async (conn, mek, m, { from, quoted, sender, reply }) => {
     try {
         const start = new Date().getTime();
 
-        const reactionEmojis = ['🔥', '⚡', '🚀', '💨', '🎯', '🎉', '🌟', '💥', '🕐', '🔹'];
-        const textEmojis = ['💎', '🏆', '⚡️', '🚀', '🎶', '🌠', '🌀', '🔱', '🛡️', '✨'];
+        const reactionEmojis = ['⚔️', '👁️', '🔥', '⚡', '🚀', '💨', '🔱', '🌑', '🩸', '✨'];
+        const textEmojis = ['💎', '⚔️', '👁️', '🌑', '🚀', '🩸', '🔱', '🔥', '⚡️', '🌌'];
 
         const reactionEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
         let textEmoji = textEmojis[Math.floor(Math.random() * textEmojis.length)];
@@ -32,9 +32,32 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const text = `> *sᴜɴɢ sᴘᴇᴇᴅ: ${responseTime.toFixed(2)}m/s ${reactionEmoji}*`;
+        const text = `╭━━〔 ⚡ *SYSTEM RESPONSE* ⚡ 〕━━⬣
+┃ 🕐 *Shadow Speed:* ${responseTime.toFixed(2)}s ${reactionEmoji}
+┃ 📡 *Status:* Stable
+╰━━━━━━━━━━━━━━⬣`;
 
         await conn.sendMessage(from, {
+            text,
+            contextInfo: {
+                mentionedJid: [sender],
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363402507750390@newsletter',
+                    newsletterName: "ᴍʀ sᴜɴɢ",
+                    serverMessageId: 143
+                }
+            }
+        }, { quoted: mek });
+
+    } catch (e) {
+        console.error("Error in ping command:", e);
+        reply(`An error occurred: ${e.message}`);
+    }
+});
+
+// created by malvin king        await conn.sendMessage(from, {
             text,
             contextInfo: {
                 mentionedJid: [sender],
