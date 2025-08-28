@@ -8,7 +8,7 @@ lite({
     pattern: "repo",
     alias: ["sc", "script", "info"],
     desc: "Fetch information about this GitHub repository.",
-    react: "📂",
+    react: "👁️",
     category: "main",
     filename: __filename
 }, async (conn, mek, m, { from, reply }) => {
@@ -23,18 +23,17 @@ lite({
         const data = await res.json();
 
         const caption = `
-╭━━〔 🔎 *Repository Info* 〕━━⬣
-┃ 📦 *Bot Name:* ${data.name}
-┃ 👑 *Owner:* ${data.owner.login}
-┃ ⭐ *Stars:* ${data.stargazers_count}
-┃ 🍴 *Forks:* ${data.forks_count}
-┃ 🔗 *Link:* ${data.html_url}
-┃ 📝 *Description:* ${data.description || 'No description'}
+╭━━〔 ⚔️ *Shadow Repository Status* ⚔️ 〕━━⬣
+┃ 📦 *System Name:* ${data.name}
+┃ 👑 *Sovereign:* ${data.owner.login}
+┃ ⭐ *Power (Stars):* ${data.stargazers_count}
+┃ 🍴 *Clones (Forks):* ${data.forks_count}
+┃ 🌐 *Gateway:* ${data.html_url}
+┃ 📜 *Description:* ${data.description || 'No inscription found'}
 ╰━━━━━━━━━━━━━━━━⬣
-✨ *Don't forget to ★ and fork!*
-🔧 ${config.DESCRIPTION}
+👁️ *Awaken the System — Star & Fork it!*
+⚡ ${config.DESCRIPTION}
         `.trim();
-
         const contextInfo = {
             mentionedJid: [m.sender],
             forwardingScore: 999,
