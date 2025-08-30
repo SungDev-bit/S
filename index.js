@@ -216,7 +216,7 @@ https://youtube.com/@malvintech2
 \n> © Dev Sung — *Awaken Your Strength*`;
 
                await conn.sendMessage(conn.user.id, { 
-                        image: { url: `https://files.catbox.moe/eeeypw.jpg` },
+                        image: { url: `https://files.catbox.moe/pyda5w.jpg` },
 			ai: true,
                         caption: upMessage
 			
