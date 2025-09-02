@@ -6,7 +6,6 @@ const { getPrefix } = require('../lib/prefix');
 const { runtime } = require('../lib/functions');
 const moment = require("moment-timezone"); // Use timezone-aware moment
 
-
 lite({
     pattern: "menu",
     react: "👁️",
@@ -22,7 +21,8 @@ async (conn, mek, m, {
         let menu = {
             download: '', group: '', fun: '', owner: '',
             ai: '', anime: '', convert: '', reaction: '',
-            main: '', logo: '', settings: '', other: ''
+            main: '', logo: '', settings: '', other: '',
+            economy: '' // <-- added economy category
         };
 
         for (let i = 0; i < commands.length; i++) {
@@ -31,6 +31,7 @@ async (conn, mek, m, {
                 menu[cmd.category] += `│ ⚔️ ${cmd.pattern}\n`;
             }
         }
+
         const currentTime = moment().tz("Africa/Harare").format("HH:mm:ss");
         const currentDate = moment().tz("Africa/Harare").format("dddd, MMMM Do YYYY");
         const prefix = getPrefix();
@@ -92,6 +93,10 @@ ${menu.logo || '│ (No commands found)'}
 ${menu.settings || '│ (No commands found)'}
 └─────────────✦
 
+┌──『 💰 ᴇᴄᴏɴᴏᴍʏ ᴍᴀɢɪᴄ 』
+${menu.economy || '│ (No commands found)'}
+└─────────────✦
+
 ┌──『 👁️ ᴏᴛʜᴇʀ ᴀʙɪʟɪᴛɪᴇs 』
 ${menu.other || '│ (No commands found)'}
 └─────────────✦
@@ -117,7 +122,6 @@ ${menu.other || '│ (No commands found)'}
             },
             { quoted: mek }
         );
-
 
         await conn.sendMessage(from, {
             audio: fs.readFileSync('./all/menu.m4a'),
