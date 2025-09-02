@@ -21,14 +21,16 @@ lite({
 
     let db = JSON.parse(fs.readFileSync(dataFile));
 
+    // Create new user if doesn't exist
     if (!db.users[from]) {
-        db.users[from] = { coins: 1000, lastDaily: 0 }; // Initialize new user
+        db.users[from] = { coins: 1000, lastDaily: 0 };
     }
 
     const now = Date.now();
     const cooldown = 24 * 60 * 60 * 1000; // 24 hours
     const lastClaim = db.users[from].lastDaily || 0;
 
+    // Check cooldown
     if (now - lastClaim < cooldown) {
         const remaining = cooldown - (now - lastClaim);
         const hours = Math.floor(remaining / (1000 * 60 * 60));
@@ -38,7 +40,7 @@ lite({
         return reply(`⏳ You already claimed your daily reward!\nPlease wait ${hours}h ${minutes}m ${seconds}s.`);
     }
 
-    // Daily reward amount
+    // Daily reward
     const reward = 5000;
     db.users[from].coins += reward;
     db.users[from].lastDaily = now;
