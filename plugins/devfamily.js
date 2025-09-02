@@ -32,11 +32,11 @@ lite({
 
     const buttons = [
         { buttonId: "v_owner", buttonText: { displayText: "👑 Owner" }, type: 1 },
-        { buttonId: "v_friend", buttonText: { displayText: "🤝 John Doe" }, type: 1 },
-        { buttonId: "v_cousin", buttonText: { displayText: "🎵 Alex Beats" }, type: 1 },
-        { buttonId: "v_sis", buttonText: { displayText: "💻 Sarah Codes" }, type: 1 },
-        { buttonId: "v_bro", buttonText: { displayText: "🐉 Kenji Slayer" }, type: 1 },
-        { buttonId: "v_bestie", buttonText: { displayText: "🌸 Lily Rose" }, type: 1 },
+        { buttonId: "v_friend", buttonText: { displayText: "🤝 kelvin" }, type: 1 },
+        { buttonId: "v_cousin", buttonText: { displayText: "🎵 sung3" }, type: 1 },
+        { buttonId: "v_sis", buttonText: { displayText: "💻 anouk" }, type: 1 },
+        { buttonId: "v_bro", buttonText: { displayText: "🐉 dev malvin" }, type: 1 },
+        { buttonId: "v_bestie", buttonText: { displayText: "🌸 sung2" }, type: 1 },
         { buttonId: "back_menu", buttonText: { displayText: "🏠 Back to Main" }, type: 1 }
     ];
 
