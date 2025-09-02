@@ -4,8 +4,8 @@ const { runtime } = require('../lib/functions');
 const config = require('../settings');
 
 lite({
-    pattern: "alive",
-    alias: ["status", "online", "a"],
+    pattern: "arise",
+    alias: ["status", "online", "arise"],
     desc: "Check if bot is alive and running",
     category: "main",
     react: "👁️",
@@ -17,18 +17,18 @@ lite({
         const uptime = runtime(process.uptime());
 
         const caption = `
-╭━━〔 ⚔️ *${config.BOT_NAME} SYSTEM STATUS* ⚔️ 〕━━⬣
-┃ ✅ *The Shadow System is Online...*
+┏━━━━━ ⚔️ 〔 *SHADOW SYSTEM ONLINE* 〕 ⚔️ ━━━━━┓
 ┃
-┃ 🩸 *Sovereign:* ${config.OWNER_NAME}
-┃ ⚡ *Version:* ${config.version}
-┃ 📖 *Prefix:* [ ${config.PREFIX} ]
-┃ 🌑 *Mode:* [ ${config.MODE} ]
-┃ 💾 *Mana (RAM):* ${heapUsed}MB / ${totalMem}MB
-┃ 🏰 *Host Core:* ${os.hostname()}
-┃ ⏳ *System Uptime:* ${uptime}
-╰━━━━━━━━━━━━━━⬣
-> ${config.DESCRIPTION}
+┃ 🖤 *Monarch:* ${config.OWNER_NAME}
+┃ 📜 *Version:* ${config.version}
+┃ 🌓 *Prefix:* [ ${config.PREFIX} ]
+┃ 🌌 *Mode:* [ ${config.MODE} ]
+┃ 🔮 *Mana (RAM):* ${heapUsed}MB / ${totalMem}MB
+┃ 🏯 *Domain Core:* ${os.hostname()}
+┃ ⏳ *Shadow Uptime:* ${uptime}
+┃
+┗━━━━━━━━━━━「 ⚔️ ${config.BOT_NAME} ⚔️ 」━━━━━━━━━━━┛
+⚔️ ${config.DESCRIPTION}
         `.trim();
 
         await conn.sendMessage(from, {
