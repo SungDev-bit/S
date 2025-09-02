@@ -4,7 +4,7 @@
 const { lite } = require('../lite');
 const fs = require('fs');
 
-const dataFile = './database/economy.json';
+const dataFile = './data/economy.json';
 
 lite({
     pattern: "inventory",
