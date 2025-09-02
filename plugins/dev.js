@@ -10,7 +10,7 @@ const fakevCard = {
     },
     message: {
         contactMessage: {
-            displayName: "© ᴍʀ ᴍᴀʟᴠɪɴ ᴋɪɴɢ",
+            displayName: "© suho ai",
             vcard: `BEGIN:VCARD
 VERSION:3.0
 FN:Meta
