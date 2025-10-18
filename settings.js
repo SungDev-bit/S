@@ -16,14 +16,14 @@ module.exports = {
   SESSION_ID: process.env.SESSION_ID || "suho~sy8ThZjK#-yOOtlKZD5x7qp_Gd2EVvXhXYqK9W-2xTqLio0k7FOk", // Your bot's session ID (make sure it starts with suho~)
   PREFIX: getConfig("PREFIX") || ",", // Command prefix (e.g., ., /, !, *)
   CHATBOT: getConfig("CHATBOT") || "on", // Chatbot mode: on/off
-  BOT_NAME: process.env.BOT_NAME || getConfig("BOT_NAME") || "Sung-Suho-MD", // Bot display name
+  BOT_NAME: process.env.BOT_NAME || getConfig("BOT_NAME") || "Suho-MD", // Bot display name
   MODE: getConfig("MODE") || process.env.MODE || "private", // Bot mode: public/private/group/inbox
   REPO: process.env.REPO || "https://github.com/NaCkS-ai/Sung-Suho-MD", // Bot GitHub repo dont change this❗️
   BAILEYS: process.env.BAILEYS || "@whiskeysockets/baileys", // Baileys version
 
   // ===== OWNER & DEVELOPER SETTINGS =====
   OWNER_NUMBER: process.env.OWNER_NUMBER || "27649342626", // Owner WhatsApp number
-  OWNER_NAME: process.env.OWNER_NAME || getConfig("OWNER_NAME") || "Dev Sung", // Owner name
+  OWNER_NAME: process.env.OWNER_NAME || getConfig("OWNER_NAME") || "Lord Sung", // Owner name
   DEV: process.env.DEV || "27649342626", // Developer contact number
   DEVELOPER_NUMBER: '27649342626@s.whatsapp.net', // Developer WhatsApp ID
 
@@ -33,7 +33,7 @@ module.exports = {
   AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*Just seen ur status 😆 🤖*", // Status reply message
   READ_MESSAGE: process.env.READ_MESSAGE || "false", // Mark messages as read automatically?
   REJECT_MSG: process.env.REJECT_MSG || "*📵 Calls are not allowed on this number unless you have permission. 🚫*", // Message on rejected call
-  ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/pyda5w.jpg",
+  ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/hlbirp.jpg",
 // add img for alive msg
 
   LIVE_MSG: process.env.LIVE_MSG || "> ʙᴏᴛ ɪs sᴘᴀʀᴋɪɴɢ ᴀᴄᴛɪᴠᴇ ᴀɴᴅ ᴀʟɪᴠᴇ\n\n\nᴋᴇᴇᴘ ᴜsɪɴɢ ✦Sung-Suho-MD✦ ғʀᴏᴍ sung ᴛᴇᴄʜ ɪɴᴄ⚡\n\n\n*© ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ - ᴍᴅ\n\n> ɢɪᴛʜᴜʙ :* github.com/NaCkS-ai/Sung-Suho-MD",
@@ -44,14 +44,14 @@ module.exports = {
   OWNER_REACT: process.env.OWNER_REACT || "false", // Owner-specific reacts
   CUSTOM_REACT: process.env.CUSTOM_REACT || "false", // Use custom emoji reactions
   CUSTOM_REACT_EMOJIS: getConfig("CUSTOM_REACT_EMOJIS") || process.env.CUSTOM_REACT_EMOJIS || "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍", // Custom react emojis
-  STICKER_NAME: process.env.STICKER_NAME || "ᴋʜᴀɴ-ᴍᴅ", // Sticker pack name
+  STICKER_NAME: process.env.STICKER_NAME || "suho-ᴍᴅ", // Sticker pack name
   AUTO_STICKER: process.env.AUTO_STICKER || "false", // Auto-send stickers
 
   // ===== MEDIA & AUTOMATION =====
   AUTO_RECORDING: process.env.AUTO_RECORDING || "false", // Auto-record voice notes
   AUTO_TYPING: process.env.AUTO_TYPING || "false", // Show typing indicator
   MENTION_REPLY: process.env.MENTION_REPLY || "false", // Reply when mentioned
-  MENU_IMAGE_URL: getConfig("MENU_IMAGE_URL") || "https://files.catbox.moe/pyda5w.jpg", // Menu image URL
+  MENU_IMAGE_URL: getConfig("MENU_IMAGE_URL") || "https://files.catbox.moe/hlbirp.jpg", // Menu image URL
 
   // ===== SECURITY & ANTI-FEATURES =====
   ANTI_DELETE: process.env.ANTI_DELETE || "true", // Recover deleted messages
@@ -75,5 +75,5 @@ module.exports = {
   GOODBYE: process.env.GOODBYE || "false", // Enable goodbye messages
   ADMIN_ACTION: process.env.ADMIN_ACTION || "false", // Show admin activity notifications
   
-version: process.env.version || "2.0.0",
+version: process.env.version || "v1.8",
 };
